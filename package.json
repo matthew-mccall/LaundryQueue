@@ -1,0 +1,44 @@
+{
+  "name": "laundryqueue",
+  "version": "1.0.0",
+  "description": "A web-based service for queueing to use the laundry machines at Rensselaer Polytechnic Institute",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently 'dotenv -v NODE_ENV='development' -v PORT='5000' -e .env npm run server-dev' 'dotenv -e .env npm run static'",
+    "server-dev": "nodemon src/server",
+    "server": "node src/server",
+    "client-dev": "vite dev",
+    "client": "vite preview",
+    "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/exoRift/LaundryQueue.git"
+  },
+  "author": "exoRift",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/exoRift/LaundryQueue/issues"
+  },
+  "homepage": "https://github.com/exoRift/LaundryQueue#readme",
+  "dependencies": {
+    "@polka/send-type": "^0.5.2",
+    "cors": "^2.8.5",
+    "polka": "^0.5.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.4.4",
+    "sirv": "^2.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^2.2.0",
+    "autoprefixer": "^10.4.13",
+    "concurrently": "^7.6.0",
+    "dotenv-cli": "^6.0.0",
+    "eslint": "^8.29.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-config-standard": "^17.0.0",
+    "nodemon": "^2.0.20",
+    "vite": "^3.2.4"
+  }
+}
