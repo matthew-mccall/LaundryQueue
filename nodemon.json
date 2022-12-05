@@ -1,5 +1,5 @@
 {
-  "watch": ["server.ts"],
-  "exec": "swc server.ts -d dist && node dist/server.js",
+  "watch": ["src"],
+  "exec": "swc src -d dist && node dist/index.js",
   "ext": "js ts"
 }
