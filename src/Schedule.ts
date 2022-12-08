@@ -2,8 +2,7 @@
  * The TimeSlot class represents a time slot. It contains the start time and end time of the time slot. The start time is
  * inclusive, and the end time is exclusive. For example, a time slot with a start time of 12:00 and an end time of 13:00
  * represents the time from 12:00 to 12:59. The time slot is 1 hour long. The start time and end time must be valid Date
- * objects. The start time must be before the end time. The start time and end time must be in the same day. The start time
- * and end time must be in the same month. The start time and end time must be in the same year. Time slots can be compared
+ * objects. The start time must be before the end time. A time slot cannot be longer than 24 hours. Time slots can be compared
  * using the less than, greater than, less than or equal to, and greater than or equal to operators. The comparison is based
  * on the start time of the time slots. The equals operator can be used to compare two time slots for equality. Two time
  * slots are equal if they have the same start time and end time. The not equals operator can be used to compare two time
@@ -40,19 +39,9 @@ export class TimeSlot {
             throw new Error("The start time must be before the end time.")
         }
 
-        // Check if the start time and end time are in the same day
-        if (start.getDate() !== end.getDate()) {
-            throw new Error("The start time and end time must be in the same day.")
-        }
-
-        // Check if the start time and end time are in the same month
-        if (start.getMonth() !== end.getMonth()) {
-            throw new Error("The start time and end time must be in the same month.")
-        }
-
-        // Check if the start time and end time are in the same year
-        if (start.getFullYear() !== end.getFullYear()) {
-            throw new Error("The start time and end time must be in the same year.")
+        // Check if the time slot is longer than 24 hours
+        if (end.getTime() - start.getTime() > 1000 * 60 * 60 * 24) {
+            throw new Error("The time slot cannot be longer than 24 hours.")
         }
 
         this.start = start
